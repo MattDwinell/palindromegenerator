@@ -20,8 +20,10 @@ const basicPalindromeChecker = (input) =>{
     console.log(reversedInput);
     if (adjustedInput === reversedInput){
         console.log(`${input} is a palindrome`);
+        return input;
     } else {
         console.log(` ${input} is not a palindrome`);
+        return false;
     }
 }
 function cleanInput(c) {
@@ -35,12 +37,5 @@ function cleanInput(c) {
     return arr.join('')
 
   }
-//   (arr[i] === '.') ||(arr[i] === '!') ||(arr[i] === '?') ||(arr[i] === '/') ||(arr[i] === '$')   
    
-basicPalindromeChecker(' racecar ! racecar .');
-basicPalindromeChecker('Bob is si bob.')
-basicPalindromeChecker('racecar ! racecar ! . . . ')
-basicPalindromeChecker(['boB','bob','duck']);
-basicPalindromeChecker(['bob','racecar','bob']);
-
 module.exports = basicPalindromeChecker;
