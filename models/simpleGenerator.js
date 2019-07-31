@@ -1,12 +1,13 @@
 const builder = require('./basicPalindromeBuilder');
 const randomWords = require('./randomWordGenerator');
+const fs = require('fs');
 
 const simpleGenerator = (num) =>{
 
     let palindromeDump = [];
       for ( let i = 0; i< 200; i++){
         let randomWordArray = randomWords(num);
-        randomWordArray.push('a', 'an', 'nah');
+        randomWordArray.push('to', 'be', 'hat', 'no');
          builder(randomWordArray);
          if(builder(randomWordArray)){
              palindromeDump.push(builder(randomWordArray))
@@ -23,7 +24,15 @@ const simpleGenerator = (num) =>{
      }
      
      console.log(palindromeDump);
+
+if(palindromeDump.length>0){
+    fs.appendFile('../textFiles/first.txt', palindromeDump.toString(), function (err) {
+        if (err) throw err;
+        console.log('Saved!');
+})
+
+};
 }
 
 
-simpleGenerator(3);
+simpleGenerator(2);
