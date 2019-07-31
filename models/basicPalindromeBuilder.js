@@ -1,4 +1,10 @@
 const checker = require("./basicPalindromeChecker");
+const cleanInput = require("./inputCleaner");
+
+//importing a combinatorics helper, which will let us easily get all permutations of an array.
+const Combinatorics = require('js-combinatorics');
+
+
 const basicBuilder = (input) =>{
     //we're gonna turn our input into an array or words, and then we need to try every combination of words the input gives us.
     //so something like 'bob racecar racecar' will return one palindrome: racecar bob racecar.
@@ -12,13 +18,26 @@ const basicBuilder = (input) =>{
     } else {
         return console.log('please input a string or an array');
     }
-let inputArray = input.trim().split(' ');
-console.log(inputArray);
+    let cleanedInput = cleanInput(input);
+let inputArray = cleanedInput.trim().split(' ');
 let palindromeArray = [];
-if (checker(inputArray)){
-    palindromeArray.push(inputArray);
-}
+cmb = Combinatorics.permutationCombination(inputArray).toArray();
+let testcmb = cmb.map((item)=>{
+    checker(item);
+    if(checker(item) && (!palindromeArray.includes(item)) && (item.length !== 1)){
+        palindromeArray.push(item);
+    }
+})
 console.log(palindromeArray);
+if(palindromeArray.length > 0){
+return(palindromeArray)}
+else {
+    return false;
 }
-basicBuilder('I like bugs');
-basicBuilder('I like bugs sgub ekil i.');
+}
+// basicBuilder('bob racecar bob bob racecar ');
+// basicBuilder(`Check if an array includes "Mango"`);
+// basicBuilder('I like bugs sgub ekil i.');
+// basicBuilder(`This method returns true if the array contain test`);
+// basicBuilder(`Richard Smith by  buried on  was an`);
+module.exports = basicBuilder;

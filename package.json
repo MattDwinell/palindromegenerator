@@ -1,0 +1,23 @@
+{
+  "name": "palindromegenerator",
+  "version": "1.0.0",
+  "description": "takes in text and puts out palindromes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattDwinell/palindromegenerator.git"
+  },
+  "author": "Matthew Dwinell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MattDwinell/palindromegenerator/issues"
+  },
+  "homepage": "https://github.com/MattDwinell/palindromegenerator#readme",
+  "dependencies": {
+    "js-combinatorics": "^0.5.4",
+    "random-words": "^1.1.0"
+  }
+}
